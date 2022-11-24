@@ -1,40 +1,35 @@
-def median(data):
-    import numpy as np
-    N = len(data)
-    # Find the clicks
-    # Make a threshold
-    data_count_mean = np.mean(data)
-    diff_mean = np.mean(data - data_count_mean)
-    thres = data_count_mean + diff_mean
-    # Find clicks
-    pos = np.where(data > thres)
-    pos = pos[0]
-    # Find the number of continious clicks as counter
-    s = []
-    counter = 1
-    for i in sorted(set(pos)):
-        s.append(i)
-        if i + 1 not in pos:
-            if len(s) >= 1:
-                if counter <= len(s):
-                    counter = len(s)
-                    s = []
-    # Define window size
-    window_size = 2 * counter + 3
-    # check if window_size is odd
-    if window_size % 2 == 1:
-        # New data should have a length of original length + window_size - 1
-        pad = (1, counter + 1)
-        pad = np.zeros(pad)[0]
-        # For the size of data to 1 * n
-        data = np.array(data).reshape(1, -1)[0]
-        pad_data = np.hstack((pad, data, pad))
-        # calculate median in a period of data and put it into the data
-        s = []
-        for j in range(len(data)):
-            s = pad_data[j: j + window_size]
-            s = np.sort(s)
-            data[j] = s[counter + 1]
-            pad_data[j + counter + 1] = data[j]
-            s = []
+import numpy as np
+
+
+def median(det, windowsize, data):
+
+    #check if windowsie is odd
+    for i in range(len(det)):
+
+    # compute the median for each click
+        if windowsize[i] % 2 == 1:
+
+            # check if the length of block is adequete for median filter
+            padsize = int((windowsize[i] - 1) / 2)
+            block = []
+
+            # situations that length is enough
+            if padsize <= det[i] and padsize <= len(data) - det[i] - 1:
+
+                # make a new block to compute for median
+                block = data[det[i] - padsize: det[i] + padsize]
+                # situations that the left half of median filter is not enough
+            elif padsize > det[i] and padsize <= len(data) - det[i] - 1:
+
+                ex = np.zeros(padsize - det[i], int)
+                block = np.append(ex, data[0 : windowsize[i] - len(ex)])
+                # situations that the right half of median filter is not enough
+            elif padsize <= det[i] and padsize > len(data) - det[i] - 1:
+
+                ex = np.zeros(padsize - len(data) + det[i] + 1, int)
+                block = np.append(data[det[i] - padsize:], ex)
+
+            blocksort = sorted(block)
+            data[det[i]] = blocksort[padsize]
+            block = []
     return data
