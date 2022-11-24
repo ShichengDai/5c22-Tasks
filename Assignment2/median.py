@@ -32,4 +32,5 @@ def median(det, windowsize, data):
             blocksort = sorted(block)
             data[det[i]] = blocksort[padsize]
             block = []
-    return data
+    restored = data
+    return restored

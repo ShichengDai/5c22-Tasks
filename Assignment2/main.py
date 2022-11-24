@@ -8,8 +8,10 @@ from median import median
 sr, detection = wavfile.read('detectionfile.wav')
 sr, data = wavfile.read('degraded.wav')
 sr, GTdata = wavfile.read('myclean.wav')
-
 det, windowsize = checkclick(detection)
 restored = median(det,windowsize,data)
+sr, data = wavfile.read('degraded.wav')
 plt.plot(data)
+plt.show()
+plt.plot(restored)
 plt.show()
