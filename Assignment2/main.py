@@ -1,3 +1,4 @@
+import unittest
 import numpy as np
 from scipy.io import wavfile
 import matplotlib.pyplot as plt
@@ -5,6 +6,7 @@ from checkclick import checkclick
 from median import median
 from cubic import cubic
 import time
+from test import median_test
 
 
 #read files from previous work first
@@ -20,23 +22,45 @@ start1 = time.time()
 det, windowsize = checkclick(detection)
 restored1 = median(det,windowsize,y)
 
-MSE1 = np.sum((restored1 - GT) ** 2).mean()
+MSE1 = np.square(restored1 - GT).mean()
 #write restored signal
 samplerate = sr
 wavfile.write("restored1.wav", samplerate, restored1.astype(np.int16))
 #record end time
 end1 = time.time()
 time1 = end1 - start1
-
-
+print(MSE1)
 
 
 ##calculate for cubicspline
+start2 = time.time()
 restored2 = cubic(y, det)
-MSE2 = np.sum((restored2 - GT) ** 2).mean()
+MSE2 = np.square(restored2 - GT).mean()
+end2 = time.time()
+time2 = end2 - start2
 wavfile.write("restored2.wav", samplerate, restored2.astype(np.int16))
 print(MSE1)
 print(MSE2)
 print('Done')
 plt.plot(restored2)
 plt.show()
+
+
+# test for median
+restored1_test = median_test(det,windowsize,y)
+
+class test(unittest.TestCase):
+    
+
+    
+    def test_case1(self):
+        a = restored1
+        b = restored1_test
+        self.assertEqual(a.all(), b.all(), msg = 'checking the median function')
+
+
+        
+        
+if __name__ == '__main__':
+    unittest.main()
+
