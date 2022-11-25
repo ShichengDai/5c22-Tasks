@@ -1,4 +1,4 @@
-
+from tqdm import tqdm
 import numpy as np
 
 
@@ -8,7 +8,9 @@ def checkclick(detection):
     windowsize = []
     counter = 1
     j = 1
-    for i in det:
+    pbar = tqdm(det)
+    for i in pbar:
+        pbar.set_description("Checking Clicks")
         s.append(i)
         if i + 1 not in det:
             if len(s) >= 1:

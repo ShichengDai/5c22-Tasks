@@ -1,11 +1,13 @@
 import numpy as np
+from tqdm import tqdm
 
 
 def median(det, windowsize, data):
 
     #check if windowsie is odd
-    for i in range(len(det)):
-
+    pbar = tqdm(range(len(det)))
+    for i in pbar:
+        pbar.set_description("Processing signals")
     # compute the median for each click
         if windowsize[i] % 2 == 1:
 
