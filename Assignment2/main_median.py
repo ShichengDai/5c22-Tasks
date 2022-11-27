@@ -4,7 +4,6 @@ from scipy.io import wavfile
 import matplotlib.pyplot as plt
 from checkclick import checkclick
 from median import median
-from cubic import cubic
 import time
 from test import median_test
 
@@ -18,7 +17,7 @@ GT = [data[0] for data in GT ]
 
 #record start time
 start1 = time.time()
-det, windowsize = checkclick(detection)
+det, windowsize = checkclick(detection, 1)
 restored1 = median(det,windowsize,y)
 
 MSE1 = np.square(restored1 - GT).mean()

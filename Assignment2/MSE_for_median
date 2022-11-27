@@ -16,7 +16,7 @@ GT = [data[0] for data in GT ]
 
 #change window size here
 #windowsize = 2n + 2ex + 1  (ex > 1)
-ex = range(1, 10000)
+ex = range(1, 100)
 #ex = [10000]
 
 
