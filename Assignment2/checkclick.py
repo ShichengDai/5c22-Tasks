@@ -2,7 +2,7 @@ from tqdm import tqdm
 import numpy as np
 
 
-def checkclick(detection):
+def checkclick(detection, ex):
     det = sorted(np.where(detection == 1)[0])
     s = []
     windowsize = []
@@ -18,7 +18,7 @@ def checkclick(detection):
                     counter = len(s)
                     while j <= counter:
                         j = j + 1
-                        windowsize.append(2 * counter + 3)
+                        windowsize.append(2 * counter + 2 * ex + 1)
                     counter = 1
                     s = []
                     j = 1

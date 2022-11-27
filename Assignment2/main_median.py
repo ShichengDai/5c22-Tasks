@@ -14,7 +14,6 @@ sr, detection = wavfile.read('detectionfile.wav')
 sr, y = wavfile.read('degraded.wav')
 sr, GT = wavfile.read('myclean.wav')
 GT = [data[0] for data in GT ]
-
 ##Calculate for median filter
 
 #record start time
@@ -29,21 +28,14 @@ wavfile.write("restored1.wav", samplerate, restored1.astype(np.int16))
 #record end time
 end1 = time.time()
 time1 = end1 - start1
+
+print('\r\n')
+print(time1)
+
 print(MSE1)
 
-
-##calculate for cubicspline
-start2 = time.time()
-restored2 = cubic(y, det)
-MSE2 = np.square(restored2 - GT).mean()
-end2 = time.time()
-time2 = end2 - start2
-wavfile.write("restored2.wav", samplerate, restored2.astype(np.int16))
-print(MSE1)
-print(MSE2)
 print('Done')
-plt.plot(restored2)
-plt.show()
+
 
 
 # test for median
