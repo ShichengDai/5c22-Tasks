@@ -10,7 +10,7 @@ def checkclick(detection, ex):
     j = 1
     pbar = tqdm(det)
     for i in pbar:
-        pbar.set_description("Checking Clicks")
+        pbar.set_description("Detecting Clicks")
         s.append(i)
         if i + 1 not in det:
             if len(s) >= 1:

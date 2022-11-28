@@ -17,7 +17,7 @@ GT = [data[0] for data in GT ]
 
 #record start time
 start1 = time.time()
-det, windowsize = checkclick(detection, 1)
+det, windowsize = checkclick(detection, 900)
 restored1 = median(det,windowsize,y)
 
 MSE1 = np.square(restored1 - GT).mean()
