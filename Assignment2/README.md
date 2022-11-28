@@ -67,11 +67,8 @@ But after hearing the two audios, the one with lower MSE showed a better result.
 ---
 ## Credits
 
-This code was developed for purely academic purposes by XXXX (add github profile name) as part of the module ..... 
+This code was developed for purely academic purposes by Shicheng Dai as part of the module 5C22 Compuntational Methods 
 
-Resources:
-- XXXX
-- XXX
 
 
 
