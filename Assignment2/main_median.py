@@ -6,6 +6,7 @@ from checkclick import checkclick
 from median import median
 import time
 from test import median_test
+from playsound import playsound
 
 
 #read files from previous work first
@@ -36,9 +37,22 @@ print(MSE1)
 print('Done')
 
 
-
 # test for median
 restored1_test = median_test(det,windowsize,y)
+playsound('restored1.wav')
+plt.figure()
+plt.subplot(211)
+plt.plot(GT)
+plt.subplots_adjust(hspace=0.5)
+plt.title('Ground Truth')
+plt.xlabel('Frequecy')
+plt.ylabel('Magnitude')
+plt.subplot(212)
+plt.plot(restored1)
+plt.title('Restored signal using median filter')
+plt.xlabel('Frequecy')
+plt.ylabel('Magnitude')
+plt.show()
 
 class test(unittest.TestCase):
     
