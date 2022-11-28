@@ -57,6 +57,7 @@ The restored waveform <restored1.wav> with the optimal filter length is given be
 2. Using the cubic splines, we observe the computing speed is quite slow because there will be more data to be processed comparing with the median filter.
 
 The restored waveform <restored2.wav> with the optimal filter length is given below:
+
 <img src="cubic.png" width="350">
 
 3. Comparing the two different interpolation methods, we notice that the method of median filter achieves a lower MSE. The runtime of median filter method is 13.089s, the one of cubic spline is 7mins 33s.
