@@ -4,11 +4,12 @@ from tqdm import tqdm
 
 def median(det, windowsize, data):
 
-    #check if windowsie is odd
     pbar = tqdm(range(len(det)))
+    # compute the median for each click
     for i in pbar:
         pbar.set_description("Processing signals")
-    # compute the median for each click
+        
+        #check if windowsie is odd
         if windowsize[i] % 2 == 1:
 
             # check if the length of block is adequete for median filter
