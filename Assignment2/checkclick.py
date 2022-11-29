@@ -3,6 +3,17 @@ import numpy as np
 
 
 def checkclick(detection, ex):
+    '''
+    Take in the detection file, variable for window size
+
+    Args:
+        Detect the number of consecutive clicks for each click
+        Then use the number to make a specific window size for each click
+    
+    Returns:
+        detection file
+        window size
+    '''
     det = sorted(np.where(detection == 1)[0])
     s = []
     windowsize = []

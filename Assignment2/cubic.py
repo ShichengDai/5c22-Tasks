@@ -3,6 +3,20 @@ from scipy.interpolate import CubicSpline
 from tqdm import tqdm
 
 def cubic(data, det):
+    '''
+    Take in the detection file and the original data
+
+    Args:
+        if the element in detection file doesn't represent for a click then add it into a new block
+
+        Then apply the new blocks of x and y to the cubic spline
+
+        Use the new funtion to predict unkown values and put it back to the original data
+
+    
+    Returns:
+        restored data
+    '''
     x = np.arange(len(data))
     block = []
     xlabel = []

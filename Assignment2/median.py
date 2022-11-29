@@ -3,7 +3,19 @@ from tqdm import tqdm
 
 
 def median(det, windowsize, data):
+    '''
+    Take in the detection file, window size for each click and the original data
 
+    Args:
+        if the length of data is enough then append nothing to the dataset
+        if the length of data is not enough for window then append zeros to the array according to different situations
+        Args:
+             if no enough space for the left half then add zeros to the left
+             if no enough space for the right half then add zeros to the right
+    
+    Returns:
+        restored data
+    '''
     pbar = tqdm(range(len(det)))
     # compute the median for each click
     for i in pbar:
