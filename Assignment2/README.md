@@ -62,7 +62,7 @@ The restored waveform <restored2.wav> with the optimal filter length is given be
 
 3. Comparing the two different interpolation methods, we notice that the method of median filter achieves a lower MSE. The runtime of median filter method is 13.089s, the one of cubic spline is 7mins 33s.
 
-But after hearing the two audios, the one with lower MSE showed a better result.
+But after hearing the two audios, though there is a higher MSE for Cubic soline, the performance for it is better then the one processed by median filter.
 
 
 ---
