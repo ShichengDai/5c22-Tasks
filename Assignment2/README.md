@@ -68,7 +68,7 @@ But after hearing the two audios, though there is a higher MSE for Cubic soline,
 ---
 ## Credits
 
-This code was developed for purely academic purposes by Shicheng Dai as part of the module 5C22 Compuntational Methods 
+This code was developed for purely academic purposes by Shicheng Dai as part of the module 5C22 Compuntational Methods. You can get access to the codes via https://github.com/ShichengDai/5c22-Tasks/tree/main/Assignment2
 
 
 
